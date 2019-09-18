@@ -2,9 +2,12 @@
 
 //To do this we are going to create a function that contains a timer to call itself again each second.
 
+
+
+
 function showTime(){
     var date = new Date(); //This gets us the current date and time.
-
+    
     var hour = date.getHours();
     var minute = date.getMinutes();
     var second = date.getSeconds();
@@ -29,10 +32,23 @@ function showTime(){
 
     var time = (hour + ":" + minute + ":" + second + " " + period);
     console.log(time);
-    document.getElementById("clockDisplay").innerText = time;
+    document.getElementById("clock").innerText = time;
 
     setTimeout(showTime, 1000); //Schedules the showTime function to be called after 1000 milliseconds, or one second.
+    
 }
-showTime();
+function showDate(){
+    var date = new Date();
 
+    var day = date.getDate();
+    var month = date.getMonth();
+    var year = date.getFullYear();
+    
+    var MonthDayYear = (month + "/" + day + "/" + year);
+    console.log(MonthDayYear);
+    document.getElementById("date").innerText = MonthDayYear;
+}
+showDate();
+
+showTime();
 //We need to make sure the hour is properly represented in 12-hr time, and we also need to determine whether we should display AM or PM.
